@@ -1,5 +1,5 @@
 //  pass
-var GetScrollRsate = {
+var ScrollRsate = {
     /**
     * @param {"Id"|"Class"|"Global"} Type
     * @param {Name} Name

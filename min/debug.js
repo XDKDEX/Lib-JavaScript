@@ -1,66 +1,38 @@
-/*
-// var GetScrollRsate = {
-//     /**
-//     *
-//     * @param {"Id"|"Class"|"Global"} Type
-//     * @param {Name} Name
-//     * @return {number}
-//     */
-//     "top": function (Type, Name) {
-//         if (Type == "Id") {
-//             doc = document.getElementById(Name);
-//         } else if (Type == "Class") {
-//             doc = document.getElementsByClassName(Name);
-//         } else if (Type == "Global") {
-//             doc = document.documentElement;
-//         } else {
-//             return null;
-//         }
-//         return (doc.scrollTop / (doc.scrollHeight - doc.clientHeight) * 100);
-//     },
-//     "left": function () {
-//     }
+// const ClassSelector = (value)=>{
+//     let self = document.getElementsByClassName(value)[0];
+//     return self;
+// }
 
-// };
-// GetScrollRsate.top()
-
-
-// var Request = {
-//     "Get": function (url) {
-//         var Request = new XMLHttpRequest();
-//         Request.open("GET", url,false);
-//         Request.send(null);
-//         Request.onreadystatechange = function(Type){
-//             if (Request.readyState == 4 & Request.readyState == 200) {
-//                 return Request.responseText;
+// const ajax = {
+//     "get": (URL,Selector) => {
+//         var httpRequest = new XMLHttpRequest();
+//         httpRequest.open("Get", URL, true);
+//         // httpRequest.setRequestHeader();
+//         httpRequest.send();
+//         httpRequest.onreadystatechange = function (Selector){
+//             if (httpRequest.readyState == 4 & httpRequest.status == 200) {
+//                 ClassSelector(Selector).innerHTML = httpRequest.responseText;
 //             }
 //         }
 //     }
-// }*/
-/*
-var test = new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve('foo');
-      reject('foo');
-    }, 300);
-});*/
-var Time = {
-    /**
-     * @param {"执行的函数带引号"} Function
-     * @param {"间隔时间(秒)"} Seconds
-     * @param {"次数"} Count
-    */
-    "count": (Function, Seconds, Count) => {
-        var Interval = setInterval(() => {
-            new Function(Function)();
-            console.log(Count);
-            if (1 == Count) {
-                clearInterval(Interval);
-            }
-            Count--;
-        }, (Seconds * 1000));
-    },
-    "Now": ()=>{
-        return new Date().getTime();
+// }
+
+function test() {
+    console.log("X:"+window.event.clientX);
+    console.log("Y:"+window.event.clientY);
+    var wave = document.getElementById("wave");
+    wave.style.left = (window.event.clientX-(wave.clientHeight)) + "px";
+    wave.style.top = (window.event.clientY-(wave.clientWidth)) + "px";
+    if(wave.style.animationName == "wave"){
+        wave.style.animationName = "wave1";
+    }else if(wave.style.animationName == "wave1"){
+        wave.style.animationName = "wave";
+    }else{
+        wave.style.animationName = "wave";
     }
+    wave.addEventListener("animationend",()=>{
+        wave.style.animationName = "end";
+    })
 }
+// import {ajax} from "./min.js";
+// ajax()
