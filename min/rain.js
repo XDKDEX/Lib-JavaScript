@@ -1,4 +1,4 @@
-"use strict";
+/* RainDrops */"use strict";
 
 const scrollRsate = (a) => {
     let doc;
@@ -63,20 +63,21 @@ ajaxSetting.Zip(true);
 }*/
 
 const doc = (data, mumber) => {
-    if (data == "document") {
+    if (data == 'document') {
         docAddEvent(document.body);
         return document.body;
     } else {
         docAddEvent(document.getElementsByClassName(data)[mumber]);
         return document.getElementsByClassName(data)[mumber];
     }
+}; 
+// const eventList = ['click', 'dblclick', 'scroll'];
+const docAddEvent = (a) => {
+    a.click = (b) => { a.addEventListener('click', b); };
+    a.dblclick = (b) => { a.addEventListener('dblclick', b); };
+    a.scroll = (b) => { if (a.nodeName == 'BODY') { window.addEventListener('scroll', b); } else { a.addEventListener('scroll', b); }; };
 };
-const docAddEvent = (a)=>{
-    a.click = (b)=>{a.addEventListener("click",b)};a.contextmenu = (b)=>{a.addEventListener("oncontextmenu",b)};a.dblclick = (b)=>{a.addEventListener("ondblclick",b)};a.mousedown = (b)=>{a.addEventListener("onmousedown",b)};a.mouseleave = (b)=>{a.addEventListener("onmouseleave",b)};a.mousemove = (b)=>{a.addEventListener("onmousemove",b)};a.mouseover = (b)=>{a.addEventListener("onmouseover",b)};a.mouseout = (b)=>{a.addEventListener("onmouseout",b)};a.mouseup = (b)=>{a.addEventListener("onmouseup",b)};a.keydown = (b)=>{a.addEventListener("onkeydown",b)};a.keypress = (b)=>{a.addEventListener("onkeypress",b)};a.keyup = (b)=>{a.addEventListener("onkeyup",b)};a.abort = (b)=>{a.addEventListener("onabort",b)};a.beforeunload = (b)=>{a.addEventListener("onbeforeunload",b)};a.error = (b)=>{a.addEventListener("onerror",b)};a.hashchange = (b)=>{a.addEventListener("onhashchange",b)};a.load = (b)=>{a.addEventListener("onload",b)};a.pagehide = (b)=>{a.addEventListener("onpagehide",b)};a.resize = (b)=>{a.addEventListener("onresize",b)};a.scroll = (b)=>{a.addEventListener("onscroll",b)};a.unload = (b)=>{a.addEventListener("onunload",b)};a.change = (b)=>{a.addEventListener("onchange",b)};a.focus = (b)=>{a.addEventListener("onfocus",b)};a.focusin = (b)=>{a.addEventListener("onfocusin",b)};a.focusout = (b)=>{a.addEventListener("onfocusout",b)};a.input = (b)=>{a.addEventListener("oninput",b)};a.reset = (b)=>{a.addEventListener("onreset",b)};a.search = (b)=>{a.addEventListener("onsearch",b)};a.select = (b)=>{a.addEventListener("onselect",b)};a.submit = (b)=>{a.addEventListener("onsubmit",b)};a.online = (b)=>{a.addEventListener("ononline",b)};
-    a.offline = (b)=>{a.addEventListener("onoffline",b)};
-    a.move = (b)=>{a.addEventListener("mousemove",b)};
-    a.wheel = (b)=>{a.addEventListener("wheel",b)};
-};
-var test = (aaa)=>{
+
+var test = (aaa) => {
     console.log(!this.aaa);
 }
